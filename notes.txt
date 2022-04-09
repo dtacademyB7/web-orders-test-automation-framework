@@ -6,6 +6,7 @@ Steps to create TestNG based framework:
 5. Add maven surefire plugin and configure it to be able to run xml files through CMD
 6. Add properties file and a Utility class PropertyReader
 7. Add a TestBase class that keeps the common setup and teardown configuration
+8. Add Singleton Driver class for proper WebDriver management to prevent multiple instantiation
 
 
 

@@ -3,9 +3,14 @@ package tests;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import utilities.Driver;
+import utilities.PropertyReader;
 
 import java.time.Duration;
 
@@ -13,15 +18,11 @@ public class TestBase {
 
     WebDriver driver;
 
-    @BeforeClass(alwaysRun = true)
-    public void setupClass() {
-        WebDriverManager.chromedriver().setup();
-
-    }
 
     @BeforeMethod(alwaysRun = true)
     public void setupMethod() {
-        driver = new ChromeDriver();
+
+        driver = Driver.getDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
@@ -30,7 +31,7 @@ public class TestBase {
 
     @AfterMethod(alwaysRun = true)
     public void tearDownMethod() {
-        driver.quit();
+        Driver.quitDriver();
     }
 
 
