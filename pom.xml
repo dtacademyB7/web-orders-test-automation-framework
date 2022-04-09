@@ -64,7 +64,12 @@
 
                         <suiteXmlFiles>
                             <!--suppress UnresolvedMavenProperty -->
+                            <!--                             to run a specific xml file-->
+                            <!--                            <suiteXmlFile>regression_suite.xml</suiteXmlFile>-->
+
+<!--                           to pass the name of the xml file through cmd -->
                             <suiteXmlFile>${xmlFile}</suiteXmlFile>
+<!--                            ${xmlFile} -> placeholder name that must be used in cmd-->
                         </suiteXmlFiles>
 
 

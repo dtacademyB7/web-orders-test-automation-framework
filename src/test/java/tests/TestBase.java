@@ -1,19 +1,15 @@
-package tests.loginTests;
+package tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class LoginTests {
+public class TestBase {
 
     WebDriver driver;
 
@@ -36,16 +32,6 @@ public class LoginTests {
     public void tearDownMethod() {
         driver.quit();
     }
-
-
-    @Test (groups = {"smoke"})
-    public void positiveLoginTest() {
-
-        driver.get("http://secure.smartbearsoftware.com/samples/TestComplete12/WebOrders/Login.aspx");
-        driver.findElement(By.id("ctl00_MainContent_username")).sendKeys("Tester", Keys.TAB, "test", Keys.ENTER);
-        Assert.assertEquals(driver.getCurrentUrl(), "http://secure.smartbearsoftware.com/samples/testcomplete12/weborders/");
-    }
-
 
 
 }

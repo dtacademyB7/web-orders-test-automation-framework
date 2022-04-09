@@ -1,4 +1,4 @@
-package tests.allOrdersTests;
+package tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -11,41 +11,25 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import utilities.PropertyReader;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
+import java.util.Properties;
 
-public class AllOrders {
-
-
-    WebDriver driver;
-
-    @BeforeClass(alwaysRun = true)
-    public void setupClass() {
-        WebDriverManager.chromedriver().setup();
-
-    }
-
-    @BeforeMethod(alwaysRun = true)
-    public void setupMethod() {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-
-
-    }
-
-    @AfterMethod(alwaysRun = true)
-    public void tearDownMethod() {
-        driver.quit();
-    }
+public class AllOrders extends TestBase {
 
 
     @Test (groups = {"smoke"})
-    public void verifyCheckAllButton() {
+    public void verifyCheckAllButton() throws IOException {
 
-        driver.get("http://secure.smartbearsoftware.com/samples/TestComplete12/WebOrders/Login.aspx");
-        driver.findElement(By.id("ctl00_MainContent_username")).sendKeys("Tester", Keys.TAB, "test", Keys.ENTER);
+
+
+        driver.get(PropertyReader.getProperty("url"));
+        driver.findElement(By.id("ctl00_MainContent_username")).sendKeys(PropertyReader.getProperty("usr"), Keys.TAB, PropertyReader.getProperty("pass"), Keys.ENTER);
 
         driver.findElement(By.id("ctl00_MainContent_btnCheckAll")).click();
         List<WebElement> checkboxes = driver.findElements(By.xpath("//input[@type='checkbox']"));
@@ -59,8 +43,8 @@ public class AllOrders {
     @Test
     public void verifyUnCheckAllButton() {
 
-        driver.get("http://secure.smartbearsoftware.com/samples/TestComplete12/WebOrders/Login.aspx");
-        driver.findElement(By.id("ctl00_MainContent_username")).sendKeys("Tester", Keys.TAB, "test", Keys.ENTER);
+        driver.get(PropertyReader.getProperty("url"));
+        driver.findElement(By.id("ctl00_MainContent_username")).sendKeys(PropertyReader.getProperty("usr"), Keys.TAB, PropertyReader.getProperty("pass"), Keys.ENTER);
 
         driver.findElement(By.id("ctl00_MainContent_btnCheckAll")).click();
         driver.findElement(By.id("ctl00_MainContent_btnUncheckAll")).click();
