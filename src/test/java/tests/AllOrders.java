@@ -11,6 +11,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pages.AllOrdersPage;
+import pages.LoginPage;
 import utilities.PropertyReader;
 
 import java.io.FileInputStream;
@@ -35,6 +37,31 @@ public class AllOrders extends TestBase {
         List<WebElement> checkboxes = driver.findElements(By.xpath("//input[@type='checkbox']"));
 
         for (WebElement checkbox : checkboxes) {
+            Assert.assertTrue(checkbox.isSelected());
+        }
+
+    }
+
+    @Test (groups = {"smoke"})
+    public void verifyCheckAllButtonUsingPAgeObjectModel() throws IOException {
+
+
+
+        driver.get(PropertyReader.getProperty("url"));
+
+        //login page
+        LoginPage loginPage = new LoginPage();
+        loginPage.username.sendKeys(PropertyReader.getProperty("usr"));
+        loginPage.password.sendKeys(PropertyReader.getProperty("pass"));
+        loginPage.loginButton.click();
+
+        // all orders page
+        AllOrdersPage allOrdersPage = new AllOrdersPage();
+
+        allOrdersPage.checkAllButton.click();
+
+
+        for (WebElement checkbox : allOrdersPage.checkboxes) {
             Assert.assertTrue(checkbox.isSelected());
         }
 

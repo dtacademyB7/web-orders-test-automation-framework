@@ -7,6 +7,7 @@ Steps to create TestNG based framework:
 6. Add properties file and a Utility class PropertyReader
 7. Add a TestBase class that keeps the common setup and teardown configuration
 8. Add Singleton Driver class for proper WebDriver management to prevent multiple instantiation
+9.
 
 
 
@@ -18,5 +19,9 @@ Steps to create TestNG based framework:
   - Maven dependency: collection of libraries (jars) that serves a specific purpose
   - Maven plugin: maven's internal tool that performs a specific operation (surefire plugin runs the test)
 
+
+
+  Page Object Model - a design pattern that is used in UI test automation frameworks where each page of the application is represented by a page class and its elements aere stored in that class
+                      Advantages: readability, re-usability, maintainability
 
 
