@@ -85,4 +85,31 @@ public class AllOrders extends TestBase {
 
     }
 
+
+    @Test
+    public void verifyDeleteSelectedButtonPOM() {
+
+
+        driver.get(PropertyReader.getProperty("url"));
+
+//        LoginPage loginPage = new LoginPage();
+//        loginPage.username.sendKeys(PropertyReader.getProperty("usr"));
+//        loginPage.password.sendKeys(PropertyReader.getProperty("pass"));
+//        loginPage.loginButton.click();
+
+        new LoginPage().loginWithValidCredentials();
+
+        AllOrdersPage allOrdersPage = new AllOrdersPage();
+
+        allOrdersPage.checkAllCheckboxes();
+
+
+        allOrdersPage.deleteSelectedButton.click();
+
+        Assert.assertTrue(driver.getPageSource().contains("List of orders is empty. In order to add new order use"));
+
+
+
+    }
+
 }

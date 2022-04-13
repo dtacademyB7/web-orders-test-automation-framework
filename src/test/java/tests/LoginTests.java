@@ -28,7 +28,7 @@ public class LoginTests extends TestBase{
 
         driver.findElement(By.id("ctl00_MainContent_password")).sendKeys(PropertyReader.getProperty("pass"));
 
-        driver.findElement(By.id("MainContent_login_button")).click();
+        driver.findElement(By.id("ctl00_MainContent_login_button")).click();
 
 
 

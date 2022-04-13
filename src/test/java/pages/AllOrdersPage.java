@@ -33,4 +33,17 @@ public class AllOrdersPage {
     public WebElement singleOrderLink;
 
 
+    @FindBy (name = "ctl00$MainContent$btnDelete")
+    public WebElement deleteSelectedButton;
+
+
+
+   public void checkAllCheckboxes(){
+           for(WebElement checkbox : this.checkboxes){
+           if(!checkbox.isSelected())
+               checkbox.click();
+       }
+   }
+
+
 }

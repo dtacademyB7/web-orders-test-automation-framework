@@ -36,14 +36,6 @@ public class TestBase {
     }
 
 
-    public static void main(String[] args) throws InterruptedException {
-
-        Driver.getDriver().get("https://www.duotech.io/");
-        Thread.sleep(2000);
-        SeleniumUtils.getScreenshotOnPass();
-
-
-    }
 
 
 }
