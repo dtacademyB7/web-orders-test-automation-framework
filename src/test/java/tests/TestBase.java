@@ -11,6 +11,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import utilities.Driver;
 import utilities.PropertyReader;
+import utilities.SeleniumUtils;
 
 import java.time.Duration;
 
@@ -32,6 +33,16 @@ public class TestBase {
     @AfterMethod(alwaysRun = true)
     public void tearDownMethod() {
         Driver.quitDriver();
+    }
+
+
+    public static void main(String[] args) throws InterruptedException {
+
+        Driver.getDriver().get("https://www.duotech.io/");
+        Thread.sleep(2000);
+        SeleniumUtils.getScreenshotOnPass();
+
+
     }
 
 

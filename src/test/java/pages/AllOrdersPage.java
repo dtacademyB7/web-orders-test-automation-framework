@@ -22,5 +22,15 @@ public class AllOrdersPage {
     @FindBy (xpath = "//input[@type='checkbox']")
     public List<WebElement> checkboxes;
 
+    @FindBy (linkText = "View all orders")
+    public WebElement allOrdersLink;
+
+    @FindBy (partialLinkText = "all products")
+    public WebElement allProductsLink;
+
+
+    @FindBy (linkText = "Order")
+    public WebElement singleOrderLink;
+
 
 }
