@@ -33,6 +33,25 @@ Steps to create TestNG based framework:
 
 
 
+   Cross Browser Testing can be implemented in various ways. The easiest solution is to use third party cloud based services such as BrowserStack, SauceLabs. Another
+                          option is to implement it natively within the framework.
+                           - You can pass the browser value through CMD with a -d switch:
+
+   - If you need to run tests in multiple browsers back to back, create a script file with multiple mvn commands:
+                      MAC: 1) Create a file with .sh extension
+                           2) add #!/bin/bash to the first line
+                           3) Add your mvn commands
+                           4) Make the script file executable: chmod u+x script_file.sh
+                           5) To execute the script file ./script_file.sh
+
+      Windows:            1) Create a file with .bat extension
+                          2) Add your mvn commands with call:
+                           call mvn test -DxmlFile=smoke_test_suite.xml -Dbrowser=edge
+                           call mvn test -DxmlFile=smoke_test_suite.xml -Dbrowser=chrome
+                           call mvn test -DxmlFile=smoke_test_suite.xml -Dbrowser=firefox
+                          3) To execute the batch file type the name of the file and hit enter batch_file.bat
+
+
 
 
 

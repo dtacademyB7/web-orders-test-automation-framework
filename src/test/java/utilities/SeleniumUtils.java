@@ -1,6 +1,7 @@
 package utilities;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
 import javax.imageio.ImageIO;
@@ -8,13 +9,25 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.function.Function;
 
 
 public class SeleniumUtils {
+
+
+    public static void main(String[] args) {
+
+
+
+
+//        System.setProperty("browser", "chrome"); //  mvn test -Dbrowser=chrome
+
+
+        System.out.println(System.getProperty("browser"));
+
+
+    }
 
 
     public static void switchToWindow(String targetTitle) {

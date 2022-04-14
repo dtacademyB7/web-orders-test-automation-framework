@@ -25,8 +25,14 @@ public class Driver {
 
         if(driver == null) { // check if the WebDriver is not initialized
 
-            String browser = PropertyReader.getProperty("browser").toLowerCase();
-            switch (browser) {
+            String browser = System.getProperty("browser");
+
+            if(browser == null) { // if the browser was not passed through command line
+                browser = PropertyReader.getProperty("browser");
+            }
+
+
+            switch (browser.toLowerCase()) {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
