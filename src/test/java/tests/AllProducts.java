@@ -69,7 +69,7 @@ public class AllProducts extends TestBase {
 
         Assert.assertEquals(allProductsPage.productNamesList.get(0).getText(), "MyMoney");
         Assert.assertEquals(allProductsPage.productNamesList.get(1).getText(), "FamilyAlbum");
-        Assert.assertEquals(allProductsPage.productNamesList.get(2).getText(), "ScreenSaver");
+        Assert.assertEquals(allProductsPage.productNamesList.get(2).getText(), "ScreenSave");
 
 
 

@@ -97,6 +97,7 @@ public class AllOrders extends TestBase {
 //        loginPage.password.sendKeys(PropertyReader.getProperty("pass"));
 //        loginPage.loginButton.click();
 
+
         new LoginPage().loginWithValidCredentials();
 
         AllOrdersPage allOrdersPage = new AllOrdersPage();
@@ -106,7 +107,7 @@ public class AllOrders extends TestBase {
 
         allOrdersPage.deleteSelectedButton.click();
 
-        Assert.assertTrue(driver.getPageSource().contains("List of orders is empty. In order to add new order use"));
+        Assert.assertTrue(driver.getPageSource().contains("List of orders is empty. In order to add new order use blbalbal"));
 
 
 

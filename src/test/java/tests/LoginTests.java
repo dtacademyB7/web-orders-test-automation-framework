@@ -22,12 +22,18 @@ public class LoginTests extends TestBase{
     @Test (groups = {"smoke"})
     public void positiveLoginTest() {
 
+
+
+        logger.info("Navigate to url");
         driver.get(PropertyReader.getProperty("url"));
 
+        logger.info("Enter username");
         driver.findElement(By.id("ctl00_MainContent_username")).sendKeys(PropertyReader.getProperty("usr"));
 
+        logger.info("Enter password");
         driver.findElement(By.id("ctl00_MainContent_password")).sendKeys(PropertyReader.getProperty("pass"));
 
+        logger.info("Click login");
         driver.findElement(By.id("ctl00_MainContent_login_button")).click();
 
 
@@ -57,6 +63,7 @@ public class LoginTests extends TestBase{
     @Test (groups = {"smoke"})
     public void negativeLoginTestUsingPageObjectModel() {
 
+
         driver.get(PropertyReader.getProperty("url"));
 
         LoginPage loginPage = new LoginPage();
@@ -70,7 +77,10 @@ public class LoginTests extends TestBase{
 
 
 
-        Assert.assertNotEquals(driver.getCurrentUrl(), "http://secure.smartbearsoftware.com/samples/testcomplete12/weborders/");
+        Assert.assertNotEquals(driver.getCurrentUrl(), "http://secure.smartbearsoftware.com/samples/testcomplete12/weborderz");
+
+
+
     }
 
 

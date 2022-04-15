@@ -16,18 +16,7 @@ import java.util.function.Function;
 public class SeleniumUtils {
 
 
-    public static void main(String[] args) {
 
-
-
-
-//        System.setProperty("browser", "chrome"); //  mvn test -Dbrowser=chrome
-
-
-        System.out.println(System.getProperty("browser"));
-
-
-    }
 
 
     public static void switchToWindow(String targetTitle) {
@@ -148,20 +137,7 @@ public class SeleniumUtils {
         return fileName;
     }
 
-    public static String getScreenshotOnPass () {
-        TakesScreenshot ts = (TakesScreenshot) Driver.getDriver();
-        File source = ts.getScreenshotAs(OutputType.FILE);
-        String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-        String fileName = "pass" + date + ".png";
-        String target = System.getProperty("user.dir") + "/target/extentReports/" + fileName;
-        File finalDestination = new File(target);
-        try {
-            FileUtils.copyFile(source, finalDestination);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return fileName;
-    }
+
     public static void scroll(int horizontalAxis, int verticalAxis) {
         JavascriptExecutor js = (JavascriptExecutor)Driver.getDriver();
         js.executeScript("window.scrollBy("+horizontalAxis+","+verticalAxis+")");
