@@ -7,7 +7,7 @@ Steps to create TestNG based framework:
 6. Add properties file and a Utility class PropertyReader
 7. Add a TestBase class that keeps the common setup and teardown configuration
 8. Add Singleton Driver class for proper WebDriver management to prevent multiple instantiation
-9.
+9. Add other utility classes and tools based on requirements
 
 
 
@@ -52,6 +52,32 @@ Steps to create TestNG based framework:
                           3) To execute the batch file type the name of the file and hit enter batch_file.bat
 
 
+    Reporting       ->   In this framework, reporting is implemented by Extent Reports dependency, another common reporting tool is Allure Reports, reporting tool can vary in each project
 
 
+   Parallel testing ->  running group of tests in parallel threads to reduce execution time and get faster test feedback
+                        2 ways:
+                       1) Selenium Grid - a hub and node style tool that lets you run the tests in parallel and in multiple browsers, platforms
+                       2) Natively within the framework through testng.xml file:
+                          - add parallel attribute in <suite> tag of the xml file with pre-defined values (methods, classes, tests) and thread-count that represents the amount of browsers
+                          - default thread-count is 5
+                          - You can run methods, classes and tests in parallel using TestNG xml file
+                          - Adjust the Driver class with ThreadLocal<WebDriver> to provide each thread with its own WebDriver and make the getDriver() and quitDriver() methods synchronized
+
+   Re-run failed tests  ->  Every time tests fail in a suite, TestNG creates a file called testng-failed.xml in the output directory.
+                        This XML file contains the necessary information to rerun only these methods that failed,
+                        allowing you to quickly reproduce the failures without having to run the entirety of your tests.
+
+
+  TestNG based TDD Framework components:
+
+  Java - write test code, implement test logic
+  Maven - project structure, dependency management, run tests thru CMD (surefire plugin)
+  Selenium - browser/UI interaction
+  TestNG - organize, structure, configure and run tests
+  WebDriverManager - automating the browser drivers management
+  Faker - generate mock/fake test data
+  Extent Reports - generate html report and add logs
+  .properties file - store test environment specific global variables
+   Singleton, Page Object Model, PageFactory - design pattern used in framework for readability, re-usability, maintainability
 
