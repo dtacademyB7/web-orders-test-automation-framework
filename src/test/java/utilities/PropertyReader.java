@@ -10,6 +10,7 @@ public class PropertyReader {
     private static Properties properties;
 
     // changed Properties win my branch sprint5_tests
+    // Someone else's changes
 
     static {
         properties = new Properties();
