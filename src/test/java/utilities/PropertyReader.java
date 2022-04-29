@@ -9,6 +9,8 @@ public class PropertyReader {
 
     private static Properties properties;
 
+    // changed Properties win my branch sprint5_tests
+
     static {
         properties = new Properties();
         FileInputStream fis = null;
